@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title>倒计时</title>
+	</head>
+	<style>
+		#app { width: 75%;margin: auto;text-align: center; }
+		#banner { background:url(img/bg.jpg) no-repeat center; height: 320px; }
+		#time { position: absolute;top: 210px;left: 36%;width: 600px; }
+		li { list-style: none;float: left;margin: 0 10px 0 10px;font-weight: bold;font-size: 24px;color: red; }
+	</style>
+	<body>
+		<div id="app">
+			<div id="banner"></div>
+			<div id="time"><ul><li>距离2.3版本</li><li id="day">00</li><li id="hour">00</li><li id="min">00</li><li id="sec">00</li></ul></div>
+		</div>	
+	</body>
+	<script>
+		const getFun = (name)=>{ return document.querySelector(name);},
+			dayTime = 24*3600,hourTime = 3600,minTime = 60,
+			dayD = getFun("#day"),hourD = getFun("#hour"),minD = getFun("#min"),secD = getFun("#sec"),
+			end = new Date("2022-1-4") / 1000,
+			RemainTime = (endTime)=>{
+				let timer = setInterval(()=>{
+					let startTime = new Date() / 1000;
+					if(startTime >= endTime) timer.clearInterval();
+					let date = endTime - startTime,day = Math.floor(date / dayTime), 
+					hour = Math.floor(date % dayTime / hourTime),min = Math.floor(date % dayTime % hourTime / minTime),
+					sec = Math.floor(date % dayTime % hourTime % minTime);
+					dayD.textContent = day + "天";hourD.textContent = hour + "小时";
+					minD.textContent = min + "分";secD.textContent = sec + "秒";		
+				},1000)
+			};RemainTime(end);
+	</script>
+</html>

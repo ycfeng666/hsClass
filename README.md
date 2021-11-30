@@ -476,28 +476,58 @@ Gui程序设计的基本方法包含以下四个方面：
    
    ![2021/11/19/d45c91119090700.png](https://i.iluoli.moe/2021/11/19/d45c91119090700.png)
 
+### 第六次实验
+
+2021年11月26日
+
+#### 实验目的
+
+1. 掌握Dom对象的常用方法
+2. 掌握计时器的使用
+3. 使用计时器实验Js效果
+
+#### 实验内容
+
+1. 使用淘宝实现秒杀计时器效果
+   
+      **[点击跳转至代码](https://github.com/ycfeng666/hsClass/blob/main/js/class13/time.html)**
+
+<br/>
+
+### 第七次实验
+
+2021年12月1日
+
+#### 实验目的
+
+1. 等待更新
+
+#### 实验内容
+
+1. 实现红绿灯的效果
+   
+      **[点击跳转至代码](https://github.com/ycfeng666/hsClass/blob/main/js/class14/light.html)**
+
 <br/>
 
 ### 未整理
 
-1. 当前时间与未来时间差
-   
-      **[点击跳转至代码](https://github.com/ycfeng666/hsClass/blob/main/js/class5/time.html)**
-2. 正则
+1. 正则
    
       **[点击跳转至代码](https://github.com/ycfeng666/hsClass/blob/main/js/class8/reg.html)**
-3. 点击与失焦
+2. 点击与失焦
    
       **[点击跳转至代码-点击](https://github.com/ycfeng666/hsClass/blob/main/js/class6/click.html)**
    
       **[点击跳转至代码-失焦](https://github.com/ycfeng666/hsClass/blob/main/js/class6/blur.html)**
-4. 双色球摇奖
+3. 双色球摇奖
    
       **[点击跳转至代码-未去重版](https://github.com/ycfeng666/hsClass/blob/main/js/class9/lucky.html)**
    
       **[点击跳转至代码-去重版](https://github.com/ycfeng666/hsClass/blob/main/js/class9/luckyNew.html)**
+4. 待定
 5. 待定
-6. 待定
+6. 广告位招租
 7. 广告位招租
 8. 广告位招租
 9. 衬衫的价格是？？

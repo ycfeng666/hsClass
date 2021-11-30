@@ -1,0 +1,41 @@
+<style>
+  #app { margin: auto;text-align: center;border:1px solid gray;
+    border-radius: 12px;width: 30%;}
+  #app >div{ display: inline-block;width: 80px;height: 80px;}
+  .light { border-radius: 50%;border: 1px solid gray;
+    margin: 0 2px;transition: all .5 ease-in-out;}
+  .light:nth-child(1) { background: red;}
+  .num { font-weight: bold;font-size: 2em;
+    line-height: 80px;overflow: hidden;}
+</style>
+
+<div id="app">
+  <div class="light"></div><div class="light"></div>
+  <div class="light"></div><div class="num">0</div>
+</div>
+
+<script>
+const color = ["red","yellow","green"],time = [2,3,1],// 绿-红-黄
+num = document.querySelector(".num"),
+light = document.querySelectorAll(".light");
+let tempNum = 0;
+class lightFun {
+  stop(time){ return new Promise((resolve,reject)=>setTimeout(resolve,time*1000)) };
+  async run(){
+    for (let t = 1; t < color.length; t++) {
+      tempNum = time[t];
+      let timer = setInterval(()=>{ tempNum--;num.textContent = tempNum;
+        if(tempNum <= 0){ clearInterval(timer);
+          color.forEach((item,index)=>{
+            if(color[t] === item) light[index].style.background = color[index];
+            else light[index].style.background = "white";
+          })
+        }
+      },1000)    
+      await this.stop(time[t]);
+      if(t === 2) t = -1;
+    }
+  }
+}
+let setLight = new lightFun();setLight.run();
+</script>
