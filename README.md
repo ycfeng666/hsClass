@@ -311,8 +311,37 @@ Gui程序设计的基本方法包含以下四个方面：
    其实每个消息框都有一个返回值，是一种DialogResult（对话框返回值）类型，其值也是一个枚举类型，其取值如下表
    
    ![2021/11/18/b121e1118090951.png](https://i.iluoli.moe/2021/11/18/b121e1118090951.png)
+
+### 第九次实验
+
+2021年11月25日
+
+> 本次实验参考代码由MySql提供数据引擎支持
+
+##### 实验目的
+
+1. 了解数据库管理、数据库、数据模型、概念模型的基本概念
+2. 掌握数据定义、数据操作、运行控制的操作
+3. 学会使用SQL Server 2012进行数据库操作
+4. 掌握数据库的基本操作
+
+#### 实验内容
+
+1. 启动Visual Studio 2012，建立数据库db_EMS，并建立数据表tb_PDic（ID,Name,Money）
+2. 连接数据库：
+   1. 代码连接
+   2. 向导连接数据库
+3. 数据操作：使用command对象实现对数据库的tb_PDic表进行添加、修改、删除功能
    
-   <br/>
+      **[点击跳转至代码-主窗体](https://github.com/ycfeng666/hsClass/blob/main/winform/class13/classWork/work1/Form1.cs)**
+   
+      **[点击跳转至代码-新增与修改窗体](https://github.com/ycfeng666/hsClass/blob/main/winform/class13/classWork/work1/FrmAddEdit.cs)**
+   
+      **[点击跳转至数据库帮助-SQLServer](https://github.com/ycfeng666/hsClass/blob/main/winform/class13/classWork/work1/DBHelper.cs)**
+   
+      **[点击跳转至代码数据库帮助-MySql](https://github.com/ycfeng666/hsClass/blob/main/winform/class13/classWork/work1/MySQLHelper.cs)**
+
+<br/>
 
 ## JS
 
