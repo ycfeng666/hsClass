@@ -30,7 +30,7 @@ const light = document.querySelectorAll(".light"),
         if(color[i]===item) light[index].style.background = color[index];
         else light[index].style.background = "white";
       })
-      await stop(time[i]);		if(i === 2)i = -1;
+      await stop(time[i]);if(i === 2)i = -1;
     }
   }
   run();
