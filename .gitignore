@@ -21,6 +21,8 @@
 *.bak
 *.class
 *.WeDrive
+*.jar
+*.class
 
 # 忽略通配符目录
 *.vs*/
@@ -32,6 +34,8 @@
 *.myeclipse*/
 *.settings*/
 *.metadata*/
+*WEB-INF*/
+
 
 # 排除目录
 java/Servers/
