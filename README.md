@@ -648,12 +648,101 @@ JDK，Eclipse，Tomcat
 
 <br/>
 
+### 第三次实验
+
+2021年11月22日
+
+#### 实验目的
+
+1. 进一步掌握JSP中HTML元素
+2. 掌握JSP内置对象
+
+#### 实验环境
+
+JDK，Eclipse，Tomcat
+
+#### 实验内容
+
+1. 编写JSP程序，实现图所示的简易计算器。要求：输入“第一个参数”，选择运算类型（+，-，*，/），输入“第二个参数”后，按“计算”按钮，结果将显示在“结果”文本框中。
+   
+   注意：程序需要对输入参数是否合法进行判断，例如参数是否为数字，除法时，除数不为0的判断。
+   
+   ![2021/12/09/644df1209072233.png](https://i.iluoli.moe/2021/12/09/644df1209072233.png)
+   
+      **[点击跳转至代码-页面](https://github.com/ycfeng666/hsClass/blob/main/java/class3/jspdemopro/WebRoot/Calculator.jsp)**
+   
+      **[点击跳转至代码-接口](https://github.com/ycfeng666/hsClass/blob/main/java/class3/jspdemopro/src/com/sy3/utils/CalculatorAPI.java)**
+2. 编写一个JSP页面，将用户名和密码存放到会话中(假设用户名为“李明”，密码为“123456”)，再重新定向到另一个JSP页面，将会话中存放的用户名和密码显示出来。（提示：使用response对象的sendRedirect()方法进行重定向。）
+   
+      **[点击跳转至代码-页面1](https://github.com/ycfeng666/hsClass/blob/main/java/class3/jspdemopro/WebRoot/Response.jsp)**
+   
+      **[点击跳转至代码-页面2](https://github.com/ycfeng666/hsClass/blob/main/java/class3/jspdemopro/WebRoot/Response2.jsp)**
+3. 写程序，完成5题选择测试题的自动分数计算，并显示最后得分。（题目代码见资料）
+   
+      **[点击跳转至代码-题目](https://github.com/ycfeng666/hsClass/blob/main/java/class3/jspdemopro/WebRoot/Qusetion.jsp)**
+   
+      **[点击跳转至代码-结果](https://github.com/ycfeng666/hsClass/blob/main/java/class3/jspdemopro/WebRoot/Answer.jsp)**
+4. 编写一个猜数字的小游戏，当用户访问一页面index.jsp时，服务器随机分配给用户一个1~100的整数（Math.Random可以在[0.0，1.0]范围内产生随机数），然后将这个整数保存在用户的session对象中，用户单击超链接“去猜测这个数”，将转到guess.jsp页面,在该页面中，如果猜测数大于机器生成的数，显示“您猜大了”和这是第几次猜测，如果猜小了，显示“您猜小了”和这是第几次猜测，如果相等，则显示“您猜对了”和这是第几次猜测，同时显示一个超链接“重新获得随机数”，单击超链接将返回index.jsp页面重新开始猜数。**（选做）**
+   
+   <br/>
+
+<br/>
+
+### 第四次实验
+
+2021年12月2日
+
+#### 实验目的
+
+1. 进一步掌握JSP标准动作
+2. 熟悉JSP标准动作的特点和使用方法。
+
+#### 实验环境
+
+JDK，Eclipse，Tomcat
+
+#### 实验内容
+
+1. 编写一个UserJsp.jsp页面向用户显示姓名，页面使用useBean标准动作。要求同时使用setProperty动作将用户姓名设置为anne。getProperty动作用于获取anne的名字。
+   
+   **[点击跳转至代码-页面](https://github.com/ycfeng666/hsClass/blob/main/java/class4/jspdemopro/WebRoot/One.jsp)**
+   
+   **[点击跳转至代码-Bean](https://github.com/ycfeng666/hsClass/blob/main/java/class4/jspdemopro/src/com/sy4/helper/User.java)**
+2. 创建一个JavaBean，用来接受汽车的颜色，以及表示汽车是否安装了空调的布尔值。如果布尔值为真，则汽车安装了空调；如果布尔值为假，则汽车未安装空调。该JavaBean返回颜色和布尔值(完成JavaBean，创建一个页面显示结果)。
+   
+   **[点击跳转至代码-页面1](https://github.com/ycfeng666/hsClass/blob/main/java/class4/jspdemopro/WebRoot/Two.jsp)**
+   
+   **[点击跳转至代码-页面-2](https://github.com/ycfeng666/hsClass/blob/main/java/class4/jspdemopro/WebRoot/Two2.jsp)**
+   
+   **[点击跳转至代码-Bean](https://github.com/ycfeng666/hsClass/blob/main/java/class4/jspdemopro/src/com/sy4/helper/Car.java)**
+
+<br/>
+
+### 第五次实验
+
+2021年12月7日
+
+#### 实验目的
+
+1. 进一步掌握EL表达式。
+2. 熟悉EL表达式的特点和使用方法。
+
+#### 实验环境
+
+JDK，Eclipse，Tomcat
+
+#### 实验内容
+
+1. 编写一个使用EL的JSP程序，用以获取一名学生五门学科的分数。每门学科的得分圴在100分以内。最后显示所有提交分数的总分和平均分。
+2. 编写一个使用EL的JSP程序，该程序将使用用户输入的数据来操作当前页面的背景色、字号大小、表格宽度和边框。
+3. 编写一个使用EL的JSP程序，输入一个数字，提交后输出该数字的九九乘法表。
+
 ## Java Web课程设计
 
 ### 投票管理系统
 
-**设计时间：**2021年12月6日-至今
+**设计时间:** 2021年12月6日-至今
 
-**完成状态：**未完成
+**完成状态:** 未完成
 
 **[点击跳转至代码目录](https://github.com/ycfeng666/hsClass/tree/main/java/classDesign)**
