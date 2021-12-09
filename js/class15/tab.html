@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style>
+		#app {width: 50%;height: 300px;margin: auto;border: 1px solid blue;text-align: center;}
+		.nav {padding-left: 0;margin-bottom: 0;list-style: none;height: 20%;}
+		.nav>li{display: block;}
+		.nav>li>a{display: block;padding: 10px 15px;}
+		.nav>li>a:hover{text-decoration: none;background-color: #eeeeee;}
+		.tab>li {float: left;}
+		.tab>li+li{margin-left: 2px;}
+		.tab>li>a{border-radius: 4px;}
+		.tab>li.click>a,.tab>li.click>a:hover,.tab>li.click>a:active{color: #fff;background-color: #337ab7;}
+		.main{height: 80%;}
+    .main>img{width: 250px;height: 90%;}
+	</style>
+	<body>
+		<div id="app">
+			<ul class="nav tab">
+				<li class="click"><a href="#">Home</a></li>
+				<li><a href="#">Menu1</a></li>
+				<li><a href="#">Menu2</a></li>
+			</ul>			
+			<div class="main" style="display: block;"><img src="../class10/gou.jpg"></div>
+			<div class="main" style="display: none;"><img src="../class10/hu.jpg"></div>
+			<div class="main" style="display: none;"><img src="../class10/xiang.jpg"></div>
+		</div>
+	</body>
+	<script>
+		const getFun =(name)=>{return document.querySelector(name)},
+		li = document.querySelectorAll("li"),main = document.querySelectorAll(".main"),
+    app = getFun("#app"),
+    event = new Event('click');
+    let showTab = true,nowClick = 0;
+		for (let i = 0; i < li.length; i++) {
+			li[i].addEventListener('click',()=>{
+				for (let j = 0; j < li.length; j++) {
+					if(i==j){li[j].classList.add("click");main[j].style.display='block';}
+          else{li[j].classList.remove("click");main[j].style.display='none';}
+				}
+			})      
+		}    
+    app.addEventListener('mouseover',()=>{ showTab = false; });
+    app.addEventListener('mouseout',()=>{ showTab = true; });
+    async function run(){
+      for (let k = 0; k < li.length; k++){
+        if(showTab){li[nowClick].dispatchEvent(event);nowClick = k;}
+        await stop();if(k===2) k = -1;
+      }
+    }
+    function stop(time){ return new Promise((a,b)=>{setTimeout(a,2000)})}
+    run();
+	</script>
+</html>
