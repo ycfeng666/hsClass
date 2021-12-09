@@ -645,3 +645,15 @@ JDK，Eclipse，Tomcat
       **[点击跳转至代码-页面](https://github.com/ycfeng666/hsClass/blob/main/java/class2/workstation/WebRoot/Count.jsp)**
    
       **[点击跳转至代码-错误页](https://github.com/ycfeng666/hsClass/blob/main/java/class2/workstation/WebRoot/Error.jsp)**
+
+<br/>
+
+## Java Web课程设计
+
+### 投票管理系统
+
+**设计时间：**2021年12月6日-至今
+
+**完成状态：**未完成
+
+**[点击跳转至代码目录](https://github.com/ycfeng666/hsClass/tree/main/java/classDesign)**
