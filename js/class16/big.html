@@ -1,0 +1,42 @@
+<style>
+* {padding: 0;}
+.box {width: 350px;height: 350px;margin: 100px;position: relative;}
+.big {width: 400px;height: 400px;position: absolute;top: 0;left: 360px;overflow: hidden;display: none;}
+.mask {width: 175px;height: 175px;background: rgba(255, 255, 0, 0.4);position: absolute;top: 0;left: 0;cursor: move;display: none;}
+.small {position: relative}
+.box img {vertical-align: top;}
+#bigBox>img {position: absolute;}
+</style>
+<div class="box" id="box">
+  <div class="small" id="smallBox"><img src="small.jpg" ><div class="mask" id="mask"></div></div>
+  <div class="big" id="bigBox"><img id="bigImg" src="big.jpg" /></div>
+</div>
+<script>
+const getFun=(name)=>{return document.querySelector(name);};
+let smallBox = getFun('#smallBox'), //小盒子
+mask = getFun('#mask'), //遮罩
+bigBox = getFun('#bigBox'), //大盒子
+bigImg = getFun('#bigImg'), //大图片
+box = getFun('#box'); //最外面box box的offsetLeft才是到body的距离
+smallBox.addEventListener('mouseover',()=>{
+  bigBox.style.display = 'block';mask.style.display = 'block';
+});
+smallBox.addEventListener('mouseout',()=>{
+  bigBox.style.display = 'none';mask.style.display = 'none';
+})
+smallBox.addEventListener('mousemove',(e)=>{
+  e = e || window.event;
+  // 事件处理:
+  // a.遮罩mask跟随鼠标移动
+  let x = e.pageX - box.offsetLeft,y = e.pageY - box.offsetTop;
+  // b.鼠标在mask中心位置
+  x -= mask.offsetWidth / 2;y -= mask.offsetHeight / 2;
+  // 边界检测
+  x = x < 0 ? 0 : x;x = x > 175 ? 175 : x;
+  y = y < 0 ? 0 : y;y = y > 175 ? 175 : y;
+  mask.style.left = x + 'px';mask.style.top = y + 'px';
+  // d.bigImg相应移动
+  bigImg.style.left = -x * bigBox.offsetWidth / mask.offsetWidth + 'px';
+  bigImg.style.top = -y * bigBox.offsetHeight / mask.offsetHeight + 'px';
+})
+</script>
