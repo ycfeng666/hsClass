@@ -6,16 +6,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <base href="<%=basePath%>">    
-    <title>使用Response</title>
-  </head>
-  
-  <body>
-     <%
+<head>
+<base href="<%=basePath%>">
+<title>使用Response</title>
+</head>
+
+<body>
+	<%
      session.setAttribute("user", "李明");
      session.setAttribute("pass", "123456");
      response.sendRedirect("Response2.jsp");
       %>
-  </body>
+</body>
 </html>

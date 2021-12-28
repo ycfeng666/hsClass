@@ -4,11 +4,10 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <html>
-  <head>
-    <base href="<%=basePath%>">    
-    <title>首页</title>
-  </head>  
-  <body>
-    欢迎来到实验4
-  </body>
+<head>
+<base href="<%=basePath%>">
+<title>首页</title>
+</head>
+<body>欢迎来到实验4
+</body>
 </html>

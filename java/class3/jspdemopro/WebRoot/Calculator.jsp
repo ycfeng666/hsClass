@@ -5,27 +5,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    <title>计算器</title>
-  </head>
-  
-  <body>
-    <h1>我的计算器</h1><hr>
-    <form>
-    	第一个数：<input type="text" class="num1"><br/>
-    	第一个数：<input type="text" class="num2"><br/>
-    	<select class="flag">
+<head>
+<base href="<%=basePath%>">
+<title>计算器</title>
+</head>
+
+<body>
+	<h1>我的计算器</h1>
+	<hr>
+	<form>
+		第一个数：<input type="text" class="num1"><br /> 第一个数：<input
+			type="text" class="num2"><br /> <select class="flag">
 			<option value=0>+</option>
 			<option value=1>-</option>
 			<option value=2>*</option>
 			<option value=3>/</option>
-		</select><br/>
-		<input type="button" value="计算" class="sub" onclick="sub()"><br>
+		</select><br /> <input type="button" value="计算" class="sub" onclick="sub()"><br>
 		结果：<span id="result"></span>
-    </form>
-  </body>
-  <script>
+	</form>
+</body>
+<script>
   	const getFun = (name)=>{return document.querySelector(name)},
   	num1 = getFun(".num1"),num2 = getFun(".num2"),flag = getFun(".flag"),btn = getFun(".sub"),result=getFun("#result");
   	let xml = new XMLHttpRequest();

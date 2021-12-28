@@ -6,13 +6,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <base href="<%=basePath%>">    
-    <title>使用Response2</title>
-  </head>
-  
-  <body>
-    用户名:<%=session.getAttribute("user") %><br>
-    密码:<%=session.getAttribute("pass") %>
-  </body>
+<head>
+<base href="<%=basePath%>">
+<title>使用Response2</title>
+</head>
+
+<body>
+	用户名:<%=session.getAttribute("user") %><br> 密码:<%=session.getAttribute("pass") %>
+</body>
 </html>
