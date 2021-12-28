@@ -360,6 +360,8 @@ Gui程序设计的基本方法包含以下四个方面：
 1. 链接数据库db_EMS，查询tb_PDic（ID，Name，Money）中价格大于500的信息  ![2021/12/09/738131209012051.png](https://i.iluoli.moe/2021/12/09/738131209012051.png)
 2. 建立DataSet数据集对象ds，将表tb_PDic中更新的信息填充到此数据集，使用DataGridView控件显示数据
 
+<br/>
+
 ## JS
 
 ### 第一次理论作业
@@ -686,8 +688,6 @@ JDK，Eclipse，Tomcat
    
    <br/>
 
-<br/>
-
 ### 第四次实验
 
 2021年12月2日
@@ -734,15 +734,41 @@ JDK，Eclipse，Tomcat
 #### 实验内容
 
 1. 编写一个使用EL的JSP程序，用以获取一名学生五门学科的分数。每门学科的得分圴在100分以内。最后显示所有提交分数的总分和平均分。
+   
+      **[点击跳转至代码-页面1](https://github.com/ycfeng666/hsClass/blob/main/java/class5/jspdemopro/WebRoot/One.jsp)**
+   
+      **[点击跳转至代码-页面2](https://github.com/ycfeng666/hsClass/blob/main/java/class5/jspdemopro/WebRoot/One-2.jsp)**
+   
+      **[点击跳转至代码-Bean](https://github.com/ycfeng666/hsClass/blob/main/java/class5/jspdemopro/src/com/sy5/helper/ScoreBean.java)**
 2. 编写一个使用EL的JSP程序，该程序将使用用户输入的数据来操作当前页面的背景色、字号大小、表格宽度和边框。
+   
+      **[点击跳转至代码-页面1](https://github.com/ycfeng666/hsClass/blob/main/java/class5/jspdemopro/WebRoot/Two.jsp)**
+   
+      **[点击跳转至代码-页面2](https://github.com/ycfeng666/hsClass/blob/main/java/class5/jspdemopro/WebRoot/Two-2.jsp)**
 3. 编写一个使用EL的JSP程序，输入一个数字，提交后输出该数字的九九乘法表。
+   
+      **[点击跳转至代码-页面1](https://github.com/ycfeng666/hsClass/blob/main/java/class5/jspdemopro/WebRoot/Three.jsp)**
+   
+      **[点击跳转至代码-页面2](https://github.com/ycfeng666/hsClass/blob/main/java/class5/jspdemopro/WebRoot/Three-2.jsp)**
+
+<br/>
 
 ## Java Web课程设计
 
 ### 投票管理系统
 
-**设计时间:** 2021年12月6日-至今
+**设计时间:** 2021年12月6日-12月28日
 
-**完成状态:** 未完成
+**完成状态:** 已完成
 
-**[点击跳转至代码目录](https://github.com/ycfeng666/hsClass/tree/main/java/classDesign)**
+**当前版本**：1.0.0-beta20211228
+
+已前后端分离，所有代码均由我个人完成
+
+后端由Java mvc设计模式（非框架）
+
+前端使用Vue3+Element-plus
+
+**[点击跳转至代码目录-后端](https://github.com/ycfeng666/hsClass/tree/main/java/classDesign)**
+
+**[点击跳转至代码目录-前端](https://github.com/ycfeng666/hsClass/tree/main/java/classdesign-web)**
