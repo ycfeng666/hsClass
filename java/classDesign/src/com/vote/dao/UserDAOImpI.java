@@ -1,40 +1,119 @@
 package com.vote.dao;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.vote.DBHelper.MySql;
+import com.vote.MyHelper.MD5Util;
 import com.vote.mod.userModel;;
 
 public class UserDAOImpI implements IUserDAO {
-	private Connection conn=null;//定义数据库连接对象 
-	private PreparedStatement pstmt=null;//定义数据库操作对象
-	public UserDAOImpI(Connection conn){ //设置数据库连接
-		this.conn=conn;
+	private Connection conn;
+	private PreparedStatement ps;
+	private ResultSet rs;
+	// 管理员与用户登录
+	@Override
+	public userModel findLogin(String account,String password,int type){
+		userModel user = null;
+		try {
+			String sqlString ="";
+			if(type == 1)sqlString = "select * from user where account=? and password =? and isAdmin = 1";
+			else sqlString = "select * from user where account=? and password =?";
+			conn = MySql.GetConn();
+			ps = conn.prepareStatement(sqlString);
+			ps.setString(1, account);
+			ps.setString(2, password);
+			rs = ps.executeQuery();
+			while(rs.next()){
+				user = new userModel();
+				user.userid = rs.getInt("userid");
+				user.account = rs.getString("account");
+				user.name = rs.getString("name");
+				user.isAdmin = rs.getInt("isAdmin");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			MySql.Close(rs, ps, conn);
+		}
+		return user;
+	}
+	// 查询用户列表
+	// 需鉴权
+	@Override
+	public List<userModel> findUserList() {
+		List<userModel> list = new ArrayList<userModel>();
+		try {
+			conn = MySql.GetConn();
+			ps = conn.prepareStatement("select * from user");
+			rs = ps.executeQuery();
+			while(rs.next()){
+				userModel user = new userModel();
+				user.userid = rs.getInt("userid");
+				user.account = rs.getString("account");
+				user.name = rs.getString("name");
+				user.isAdmin = rs.getInt("isAdmin");
+				list.add(user);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 	@Override
-	public boolean findLogin(userModel user) throws Exception {
-		boolean flag=false;
+	public boolean findUserByAccount(String Account) {
+		String sqlString ="select count(*) 'count' from user where account=?";
+		boolean result = false;
 		try {
-			String sql="select name from user where name='"+user.getName()+"' and password='"+user.getPassword()+"'";
-			pstmt=conn.prepareStatement(sql);//实例化操作
-			pstmt.setString(1,user.getName());
-		    pstmt.setString(2, user.getPassword());
-		    ResultSet rSet=pstmt.executeQuery();//取得结果 
-		    if(rSet.next()){
-		    	user.setName(rSet.getString(1));//取得用户名
-		    	flag=true; 
-		    } 
-		} catch (Exception e) {
-			throw e;
+			conn = MySql.GetConn();
+			ps = conn.prepareStatement(sqlString);
+			ps.setString(1, Account);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				if(rs.getInt("count")>0) result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}finally{
-			//关闭操作
-			if(pstmt!=null){
-				try {
-					pstmt.close();
-				} catch (Exception e) {
-					throw e;				
-			}		
+			MySql.Close(rs, ps, conn);
+		}	
+		return result;
+	}
+	@Override
+	public boolean saveUser(userModel user,int type) {
+		String sqlString = "";
+		if(type == 0)sqlString = "insert into user(account,password,isAdmin,name) values (?,?,0,?)";
+		else if(type == 1) sqlString="update user set account=?,password=?,name=? where userid=?";
+		try {
+			conn = MySql.GetConn();
+			ps = conn.prepareStatement(sqlString);
+			ps.setString(1, user.account);
+			ps.setString(2, MD5Util.getMD5Str(user.password));
+			ps.setString(3, user.name);
+			if(type == 1) ps.setInt(4, user.userid);
+			int i = ps.executeUpdate();
+			if(i>0)return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			MySql.Close(null, ps, conn);
 		}
-			
+		return false;
+	}
+	@Override
+	public boolean delUser(int id) {
+		String sqlString = "delete from user where userid=?";
+		try {
+			conn = MySql.GetConn();
+			ps = conn.prepareStatement(sqlString);
+			ps.setInt(1, id);
+			int i = ps.executeUpdate();
+			if(i>0)return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			MySql.Close(null, ps, conn);
 		}
-		return flag;
+		return false;
 	}
 }
